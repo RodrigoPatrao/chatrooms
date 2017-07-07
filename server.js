@@ -4,9 +4,7 @@ var fs         = require('fs')
 var path       = require('path');
 var mime       = require('mime');
 var cache      = {};
-var chatServer = require('./lib/chat_server');
-// INICIA SERVIDOR DE CHAT (SOCKET.IO)
-chatServer.listen(server);
+
 // ERRO 404
 function send404(response){
   response.writeHead(404, {'Content-Type': 'text/plain; charset=utf-8'});
@@ -54,3 +52,6 @@ var server = http.createServer(function(request, response) {
 server.listen(3000, function(){
   console.log('Servidor rodando na porta 3000.');
 })
+// INICIA O  SERVIDOR DE CHAT (SOCKET.IO)
+var chatServer = require('./lib/chat_server');
+chatServer.listen(server);

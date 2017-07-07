@@ -26,7 +26,7 @@ $(document).ready(function() {
   socket.on('nameResult', function(result) {
     var message;
     if (result.success) {
-      message = 'You are now known as ' + result.name + '.';
+      message = 'Seu apelido agora é ' + result.name + '.';
     } else {
       message = result.message;
     }
@@ -34,7 +34,7 @@ $(document).ready(function() {
   });
   socket.on('joinResult', function(result) {
     $('#room').text(result.room);
-    $('#messages').append(divSystemContentElement('Room changed.'));
+    $('#messages').append(divSystemContentElement('Trocou de sala.'));
   });
   socket.on('message', function (message) {
     var newElement = $('<div></div>').text(message.text);
