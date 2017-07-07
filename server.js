@@ -1,9 +1,12 @@
 // VARIÁVEIS DE INICIALIZAÇÃO DE MÓDULOS
-var http = require('http');
-var fs = require('fs')
-var path = require('path');
-const mime = require('mime');
-var cache = {};
+var http       = require('http');
+var fs         = require('fs')
+var path       = require('path');
+var mime       = require('mime');
+var cache      = {};
+var chatServer = require('./lib/chat_server');
+// INICIA SERVIDOR DE CHAT (SOCKET.IO)
+chatServer.listen(server);
 // ERRO 404
 function send404(response){
   response.writeHead(404, {'Content-Type': 'text/plain; charset=utf-8'});
